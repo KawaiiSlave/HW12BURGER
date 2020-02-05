@@ -1,16 +1,19 @@
-var Sequelize = require("sequelize");
+module.exports = function(sequelize, DataTypes) {
+  var Burger = sequelize.define("Burger", {
+    burger_name: {
+    
+    type:DataTypes.STRING,
+     allowNull: false,
+     validate: {
+       len: [1,50]
+     }
+    
+    },
+     devoured: {
 
-var sequelize = require("../config/connection.js");
-
-// Creates a "Burger" model that matches up with DB
-let Burger = sequelize.define("burgers", {
-  burger_name: Sequelize.STRING,
-  devoured: Sequelize.BOOLEAN,
-  defaultValue: 0
-});
-
-// Syncs with DB
-Burger.sync();
-
-// Makes the Burger Model available for other files (will also create a table)
-module.exports = Burger;
+     type: DataTypes.BOOLEAN,
+     defaultValue: 0
+     }
+  });
+  return Burger;
+};
