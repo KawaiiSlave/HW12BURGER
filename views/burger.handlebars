@@ -1,20 +1,28 @@
-<h1>Burger Consumption!</h1>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<ul class="list-group todo-list">
+					<li class="list-group-item new-item">
+						<form id="todo-form">
+              <div class="container">
+                <div class="row">
+                  <div class="col-10">
+                    <input class="new-item form-control" placeholder="Add a todo" type="text" />
+                  </div>
+                  <div class="col-2">
+                    <button type="submit" class="btn btn-success">Add Todo</button>
+                  </div>
+                </div>
+              </div>
+						</form>
+					</li>
+					<span class="todo-container">
+					</span>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
 
-<h3>Save Wishes</h3>
-
-<ul>
-  {{#each wishes}}
-  	<li>
-  	   <p>ID: {{this.id}}</p>
-       <p>Wish: {{this.wish}}</p>
-  	</li>
-  {{/each}}
-</ul>
-
-<div>
-  <form action="/" method="POST">
-  	<textarea type="text" name="wish"></textarea>
-
-  	<button type="submit">Submit</button>
-  </form>
-</div>
+	

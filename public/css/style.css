@@ -1,37 +1,19 @@
-.chirp {
-  padding: 10px;
-  margin: 10px;
-  background-color: #e8f9ff;
+.todo-list {
+  margin: 0 auto;
+  margin-top: 75px;
 }
 
-.cool-font {
-  font-family: Shrikhand, cursive;
-  font-size: 24px;
-  color: #1da1f2;
+input.new-item:focus {
+  outline: none;
 }
 
-.jumbotron {
-  font-family: Shrikhand, cursive;
-  color: white;
-  background-color: #1da1f2;
+.list-group-item > button.delete,
+.list-group-item > button.complete {
+  float: right;
+  height: 25px;
+  margin-left: 5px;
 }
 
-input,
-textarea {
-  margin: 20px;
-}
-
-.btn {
-  margin: 10px;
-  font-family: Shrikhand, cursive;
-  color: #1da1f2;
-  background-color: white;
-  border-color: #1da1f2;
-  border-style: solid;
-  border-width: 2px;
-}
-
-p {
-  margin: 0;
-  font-size: 16px;
+.edit {
+  width: 100%;
 }

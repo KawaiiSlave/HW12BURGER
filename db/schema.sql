@@ -1,12 +1,9 @@
-CREATE DATABASE burgers_db;
+DROP DATABASE IF EXISTS burgerDB;
 
-USE burgers_db;
+CREATE DATABASE burgerDB;
 
-CREATE TABLE burgers (
-    id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    burger_name VARCHAR(40) NOT NULL,
-    devoured BOOLEAN NOT NULL
-);
+USE burgerDB;
+
 
 
 
