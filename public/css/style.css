@@ -1,19 +1,19 @@
-.todo-list {
-  margin: 0 auto;
-  margin-top: 75px;
+body{
+  background-image: url("https://ak2.picdn.net/shutterstock/videos/16297072/thumb/1.jpg");
+  background-color: gray;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 100%;
 }
 
-input.new-item:focus {
-  outline: none;
+
+
+.devoured-list{
+
+  offset: 1;
+
 }
 
-.list-group-item > button.delete,
-.list-group-item > button.complete {
-  float: right;
-  height: 25px;
-  margin-left: 5px;
-}
-
-.edit {
-  width: 100%;
+h1, h2, li {
+  color: white;
 }

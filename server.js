@@ -10,7 +10,7 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-app.use(express.static("app/public"));
+app.use(express.static("public"));
 
   
 require("./routes/api-routes.js")(app);

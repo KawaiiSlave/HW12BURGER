@@ -1,71 +1,71 @@
+let db = require("../models");
 
-var db = require("../models");
 
-// Routes
-// =============================================================
-module.exports = function(app) {
 
-  // GET route for getting all of the todos
-  app.get("/api/burgers", function(req, res) {
-    // findAll returns all entries for a table when used with no options
-    db.Burger.findAll({}).then(function(dbBurger) {
-      // We have access to the todos as an argument inside of the callback function
-      res.json(dbBurger);
+module.exports = function (app) {
+
+
+
+  // Get existing burgers from database
+
+  app.get("/", function (req, res) {
+
+    db.Burger.findAll({}).then(function (results) {
+
+      // console.log(results);
+
+      res.render("index", { burger: results });
+
     });
+
   });
 
-  // POST route for saving a new todo
-  app.post("/api/burgers", function(req, res) {
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property (req.body)
+
+
+  // Add burger
+
+  app.post("/api/burger", function (req, res) {
+
     db.Burger.create({
-      burger_name: req.body.burger_name,
-      eaten: req.body.eaten
-    }).then(function(dbTodo) {
-      // We have access to the new todo as an argument inside of the callback function
-      res.json(dbBurger);
-    })
-      .catch(function(err) {
-      // Whenever a validation or flag fails, an error is thrown
-      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-        res.json(err);
-      });
-  });
 
-  // DELETE route for deleting todos. We can get the id of the todo to be deleted from
-  // req.params.id
-  app.delete("/api/burgers/:id", function(req, res) {
-    // We just have to specify which todo we want to destroy with "where"
-    db.Burger.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbBurger) {
-      res.json(dbBurger);
+      burger_type: req.body.burger_type
+
+    }).then(function (results) {
+
+      res.json({ id: results.id });
+
+      res.status(200).end()
+
     });
 
   });
 
-  // PUT route for updating todos. We can get the updated todo data from req.body
-  app.put("/api/burgers", function(req, res) {
 
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
+
+  // Devour burger
+
+  app.put("/api/burger/:id", function (req, res) {
+
+    console.log(req.params.id);
+
     db.Burger.update({
-      burger_name: req.body.burger_name,
-      eaten: req.body.eaten
-    }, {
+
+      devoured: true,
+
+    },{
+
       where: {
-        id: req.body.id
+
+        id: req.params.id
+
       }
-    }).then(function(dbBurger) {
-      res.json(dbBurger);
-    })
-      .catch(function(err) {
-      // Whenever a validation or flag fails, an error is thrown
-      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-        res.json(err);
-      });
+
+    }).then(function () {
+
+      res.status(200).end();
+
+    });
+
   });
+
 };

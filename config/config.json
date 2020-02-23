@@ -2,7 +2,7 @@
   "development": {
     "username": "Tyler",
     "password": "eevee",
-    "database": "burgers_db",
+    "database": "burgerdb",
     "host": "localhost",
     "dialect": "mysql",
     "operatorsAliases": false
